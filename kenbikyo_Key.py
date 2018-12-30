@@ -5,7 +5,7 @@ def cv_fourcc(c1, c2, c3, c4):
         return (ord(c1) & 255) + ((ord(c2) & 255) << 8) + \
             ((ord(c3) & 255) << 16) + ((ord(c4) & 255) << 24)
 
-def test():
+def main():
     OUT_FILE_NAME = "kenbikyo_video.mp4"
     FRAME_RATE=30
     w=200
@@ -26,9 +26,9 @@ def test():
         # Display FPS on frame
         cv2.putText(frame, "FPS : " + str(int(1000*fps)), (100,50), cv2.FONT_HERSHEY_SIMPLEX, 0.75, (50,170,50), 2);
         cv2.imshow('test',frame)
-        #sleep(1)
+        
         key = cv2.waitKey(1)&0xff
-        #print("key=",key,ord('q'))
+        
         if is_video=="True":
             img_dst = cv2.resize(frame, (int(200), 150))
             out.write(img_dst)
@@ -45,4 +45,4 @@ def test():
             is_video = "False"    
 
 if __name__ == '__main__':
-    test()
+    main()
