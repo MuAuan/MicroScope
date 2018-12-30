@@ -8,7 +8,7 @@ def cv_fourcc(c1, c2, c3, c4):
 def main():
     OUT_FILE_NAME = "kenbikyo_video.mp4"
     FRAME_RATE=30
-    w=200 #1260
+    w=200 #1280
     h=150 #960
     out = cv2.VideoWriter(OUT_FILE_NAME, \
               cv_fourcc('M', 'P', '4', 'V'), \
