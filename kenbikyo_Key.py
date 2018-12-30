@@ -8,8 +8,8 @@ def cv_fourcc(c1, c2, c3, c4):
 def main():
     OUT_FILE_NAME = "kenbikyo_video.mp4"
     FRAME_RATE=30
-    w=200
-    h=150
+    w=200 #1260
+    h=150 #960
     out = cv2.VideoWriter(OUT_FILE_NAME, \
               cv_fourcc('M', 'P', '4', 'V'), \
               FRAME_RATE, \
@@ -30,7 +30,7 @@ def main():
         key = cv2.waitKey(1)&0xff
         
         if is_video=="True":
-            img_dst = cv2.resize(frame, (int(200), 150))
+            img_dst = cv2.resize(frame, (int(200), 150))   #1280x960
             out.write(img_dst)
             print(is_video)
             
