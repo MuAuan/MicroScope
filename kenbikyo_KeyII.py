@@ -6,11 +6,12 @@ def cv_fourcc(c1, c2, c3, c4):
             ((ord(c3) & 255) << 16) + ((ord(c4) & 255) << 24)
 
 def main():
-    OUT_FILE_NAME = "kenbikyo_video.mp4"
+    OUT_FILE_NAME = "kenbikyo_video"
     FRAME_RATE=30
     w=640 #1280
     h=480 #960
-    out = cv2.VideoWriter(OUT_FILE_NAME, \
+    timer = cv2.getTickCount()
+    out = cv2.VideoWriter(OUT_FILE_NAME+str(int(timer))+".mp4", \
               cv_fourcc('M', 'P', '4', 'V'), \
               FRAME_RATE, \
               (w, h), \
@@ -19,7 +20,6 @@ def main():
     is_video = 'False'
     s=0.1
     j=0
-    timer = cv2.getTickCount()
     while True:
         ret, frame = cap.read()
         #sleep(s)
